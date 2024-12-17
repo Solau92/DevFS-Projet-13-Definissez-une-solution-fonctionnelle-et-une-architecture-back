@@ -1,0 +1,63 @@
+DROP DATABASE yourcaryourway;
+
+CREATE DATABASE yourcaryourway;
+USE yourcaryourway;
+
+CREATE TABLE utilisateur (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nom VARCHAR(50) NOT NULL,
+prenom VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL UNIQUE,
+mot_passe VARCHAR(255) ,
+date_naissance DATE,
+adresse VARCHAR(50),
+date_creation DATE
+);
+
+CREATE TABLE message (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+date_heure DATETIME NOT NULL,
+id_expediteur INTEGER NOT NULL,
+id_destinataire INTEGER NOT NULL,
+contenu VARCHAR(255) NOT NULL,
+statut VARCHAR(10) NOT NULL,
+CONSTRAINT FOREIGN KEY(id_expediteur) REFERENCES utilisateur(id),
+CONSTRAINT FOREIGN KEY(id_destinataire) REFERENCES utilisateur(id)
+);
+
+CREATE TABLE vehicule (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+categorie VARCHAR(10) NOT NULL,
+disponibilite VARCHAR(255) NOT NULL,
+tarif_journalier FLOAT NOT NULL
+);
+
+CREATE TABLE agence (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nom VARCHAR(50) NOT NULL,
+adresse VARCHAR(50)
+);
+
+CREATE TABLE reservation (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id_utilisateur INTEGER NOT NULL,
+id_vehicule INTEGER,
+id_agence_depart INTEGER NOT NULL,
+id_agence_retour INTEGER NOT NULL,
+date_heure_debut DATETIME NOT NULL,
+date_heure_fin DATETIME NOT NULL,
+statut VARCHAR(10) NOT NULL,
+tarif FLOAT NOT NULL,
+CONSTRAINT FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id),
+CONSTRAINT FOREIGN KEY(id_vehicule) REFERENCES vehicule(id),
+CONSTRAINT FOREIGN KEY(id_agence_depart) REFERENCES agence(id),
+CONSTRAINT FOREIGN KEY(id_agence_retour) REFERENCES agence(id)
+);
+
+CREATE TABLE paiement (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id_reservation INTEGER NOT NULL,
+montant FLOAT NOT NULL,
+statut VARCHAR(10) NOT NULL,
+CONSTRAINT FOREIGN KEY(id_reservation) REFERENCES reservation(id)
+);
