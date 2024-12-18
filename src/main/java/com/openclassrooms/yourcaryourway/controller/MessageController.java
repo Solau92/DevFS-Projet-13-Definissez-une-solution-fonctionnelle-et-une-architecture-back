@@ -78,7 +78,7 @@ public class MessageController {
 		message.setContent(messagedto.getContent());
 		message.setDateHour(LocalDateTime.now());
 
-		if(!messagedto.getSenderEmail().equals("email@serviceclients.com")) {
+		if(!messagedto.getSenderEmail().equals("email@serviceclient.com")) {
 			message.setRecipientId(1);
 		} else {
 			message.setRecipientId(2);
