@@ -58,5 +58,5 @@ To run the app, go to the folder that contains the pom.xml file (*./back*) and e
 
 
 ## - **Front part of the app** -
-
+ 
 The front part of the app can be found here : https://github.com/Solau92/DevFS-Projet-13-Definissez-une-solution-fonctionnelle-et-une-architecture-front.git
