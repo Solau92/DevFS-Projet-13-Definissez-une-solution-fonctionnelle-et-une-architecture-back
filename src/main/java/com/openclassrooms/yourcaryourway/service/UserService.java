@@ -1,6 +1,5 @@
 package com.openclassrooms.yourcaryourway.service;
 
-import com.openclassrooms.yourcaryourway.controller.UserController;
 import com.openclassrooms.yourcaryourway.entity.User;
 import com.openclassrooms.yourcaryourway.repository.UserRepository;
 import org.slf4j.Logger;

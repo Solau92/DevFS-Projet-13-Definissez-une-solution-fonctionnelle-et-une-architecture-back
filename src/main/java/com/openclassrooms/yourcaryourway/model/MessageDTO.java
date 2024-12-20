@@ -1,9 +1,7 @@
 package com.openclassrooms.yourcaryourway.model;
 
-import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class MessageDTO implements Comparable<Object>{

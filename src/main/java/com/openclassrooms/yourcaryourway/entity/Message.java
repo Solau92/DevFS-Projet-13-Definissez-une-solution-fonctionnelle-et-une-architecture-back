@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,8 +28,6 @@ public class Message implements Comparable<Object>{
 	@Column(nullable = false)
 	private String content;
 
-	// TODO : change String to enum ?
-//	@Column(nullable = false)
 	@Column
 	private String status;
 
